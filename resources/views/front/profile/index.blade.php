@@ -26,11 +26,16 @@
         </div>
         <div class="col-lg-3 text-center">
             @if(!empty(auth()->user()->image))
-            <img src="{{asset('images/'.auth()->user()->image)}}" height="120" style="border-radius:50%">
+            <img src="{{ 'images/'.auth()->user()->image }}" height="120" style="border-radius:50%">
             @else
-            <img src="{{asset('images/profile.png')}}" height="120">
+            <img src="{{ 'images/profile.png'}}" height="120">
             @endif
+            @if(!empty(auth()->user()->verify == "1"))
             <span class="badge badge-success p-1"><i class="fa fa-check-circle"></i> Verified Account</span>
+            @else
+            <span class="badge badge-danger p-1"><i class="fa fa-check-circle"></i> unverified Account</span><br/>
+            <a href="{{ 'verify/'.auth()->user()->id }}">verify now</a>
+            @endif
         </div>
     </div>
 
@@ -61,10 +66,10 @@
 
                     <div class="form-group col">
                     @if(empty(auth()->user()->image))
-                    <img src="{{asset('images/profile.png')}}" height="60">
+                    <img src="{{ 'images/profile.png' }}" height="60">
                     
                     @else
-                    <img src="{{asset('images/'.auth()->user()->image)}}" height="60">
+                    <img src="{{ 'images/'.auth()->user()->image }}" height="60">
                     @endif
                         <label>Image</label>
                         <input type="file" name="image" required class="rounded-0 form-control" value="">

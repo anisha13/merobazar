@@ -74,7 +74,7 @@ class CompanyController extends Controller
 
             $image = $request->file('image');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(519, 324, function ($constraint) {
                 $constraint->aspectRatio();
@@ -82,7 +82,7 @@ class CompanyController extends Controller
             })->save($destinationpath);
             if ($oldimage != null)
             {
-                unlink('public/images/'.$oldimage);
+                unlink('images/'.$oldimage);
             }
 
             $company->logo = $imagename;

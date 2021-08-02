@@ -50,7 +50,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Product Price</label>
-                            <input type="text" name="price" value="{{$product->price}}" placeholder="0" class="form-control rounded-0">
+                            <input type="text" name="product_price" value="{{$product->price}}" placeholder="0" class="form-control rounded-0">
                         </div>
                     </div>
                     <div class="col">
@@ -60,12 +60,12 @@
                         </div>
                     </div>
                 </div>
-                <img src="{{asset('/images/'.$product->thumbnail)}}" height="70">
+                <img src="{{'/images/'.$product->thumbnail }}" height="70">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
                             <label>Thumbnail</label>
-                            <input type="file" name="image"  class="form-control form-control-file rounded-0">
+                            <input type="file" name="thumbnail"  class="form-control form-control-file rounded-0">
                             <input type="hidden" name="oldfile" required class="form-control form-control-file rounded-0" value="{{$product->thumbnail}}">
                         </div>
                     </div>

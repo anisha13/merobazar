@@ -24,7 +24,7 @@ class AdsController extends Controller
             $images = $request->file('image');
             foreach ($images as $image) {
                 $originalname = time() . '' . $image->getClientOriginalName();
-                $destination = 'public/images/';
+                $destination = 'images/';
                 $image->move($destination,$originalname);
                 $ads = new Admanagement;
                 $ads->image = $originalname;
@@ -45,7 +45,7 @@ class AdsController extends Controller
     public function delete(Admanagement $ads)
     {
         if($ads->image != null){
-            unlink('public/images/'.$ads->image);
+            unlink('images/'.$ads->image);
         }
         $ads->delete();
 
@@ -62,4 +62,3 @@ class AdsController extends Controller
             return back()->with($notification);
     }
 }
-

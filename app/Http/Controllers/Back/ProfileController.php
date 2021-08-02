@@ -39,12 +39,12 @@ class ProfileController extends Controller
             $image = $request->file('image');
             $imagename=time().$image->getClientOriginalName();
 
-            $destinationpath = 'public/images/';
+            $destinationpath = 'images/';
             if($request->old_image == null){
                 $image->move($destinationpath,$imagename);
                 $user->name = $request->name;
                 $user->contact =$request->contact;
-                $user->roles =$request->roles;
+                //$user->roles =$request->roles;
                 $user->address =$request->address;
                 $user->image =$imagename;
                 $user->save();
@@ -59,7 +59,7 @@ class ProfileController extends Controller
                 $image->move($destinationpath,$imagename);
                 $user->name = $request->name;
                 $user->contact =$request->contact;
-                $user->roles =$request->roles;
+                //$user->roles =$request->roles;
                 $user->address =$request->address;
                 $user->image =$imagename;
                 $user->save();
@@ -71,7 +71,7 @@ class ProfileController extends Controller
             $user = auth('admin')->user();
 
             $user->name = $request->name;
-            $user->phone =$request->contact;
+            $user->contact =$request->contact;
             $user->address =$request->address;
             $user->save();
             $notificatoin=array('message'=>'Profile Updated Successfully','alert-type'=>'success');

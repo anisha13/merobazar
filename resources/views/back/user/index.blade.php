@@ -47,12 +47,12 @@
                                     <th>{{$user->acc_type}}</th>
                                     <th>
                                      @if($user->verify == '1')
-                                     <span class="badge badge-success p-2">Verifird</span>
+                                     <span class="badge badge-success p-2">Verified</span>
                                      @else
-                                     <span class="badge badge-warning p-2">UnVerifird</span>
+                                     <span class="badge badge-warning p-2">UnVerified</span>
                                      @endif
                                     </th>
-                                    <th><img src="{{asset('public/images/'.$user->image)}}" height="30"></th>
+                                    <th><img src="{{ '/images/'.$user->image }}" height="30"></th>
                                     
                                     
                                    <th>

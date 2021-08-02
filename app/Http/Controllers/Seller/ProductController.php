@@ -61,7 +61,7 @@ class ProductController extends Controller
 
             $image = $request->file('thumbnail');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(519, 324, function ($constraint) {
                 $constraint->aspectRatio();
@@ -211,7 +211,7 @@ class ProductController extends Controller
 
             $image = $request->file('thumbnail');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(519, 324, function ($constraint) {
                 $constraint->aspectRatio();
@@ -219,7 +219,7 @@ class ProductController extends Controller
             })->save($destinationpath);
             if ($oldimage != null)
             {
-                unlink('public/images/'.$oldimage);
+                unlink('images/'.$oldimage);
             }
 
             $product->thumbnail = $imagename;
@@ -276,7 +276,7 @@ class ProductController extends Controller
             $images = $request->file('image');
             foreach ($images as $image) {
                 $originalname = time() . '' . $image->getClientOriginalName();
-                $destination = 'public/images/' . $originalname;
+                $destination = 'images/' . $originalname;
                 Image::make($image)->resize(300, 300)->save($destination);
                 $gallery = new Gallery;
                 $gallery->product_id = $request->product;

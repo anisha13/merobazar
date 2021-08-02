@@ -59,7 +59,7 @@ class CategoryController extends Controller
 
             $image = $request->file('image');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(519, 324, function ($constraint) {
                 $constraint->aspectRatio();
@@ -97,7 +97,7 @@ class CategoryController extends Controller
 
             $image = $request->file('image');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(519, 324, function ($constraint) {
                 $constraint->aspectRatio();
@@ -105,7 +105,7 @@ class CategoryController extends Controller
             })->save($destinationpath);
             if ($oldimage != null)
             {
-                unlink('public/images/'.$oldimage);
+                unlink('images/'.$oldimage);
             }
 
             $category->image = $imagename;

@@ -62,7 +62,7 @@
                                     <a href="{{route('product.edit',$product->id)}}" class="btn btn-link btn-sm rounded-0 p-0" data-toggle="tooltip" data-placement="top" title="Edit Product"><i class="fa fa-edit"></i></a>
                                     <a href="{{route('image.product',$product->id)}}" class="btn btn-link btn-sm rounded-0 p-0" data-toggle="tooltip" data-placement="top" title="Add More Images"><i class="fa fa-image"></i></a>
 
-                                    <a href="{{route('admin.product.delete',$product->id)}}" class="btn btn-link btn-sm rounded-0 p-0" data-toggle="tooltip" data-placement="top" title="Edit Product"><i class="fa fa-trash"></i></button>
+                                    <a href="{{route('admin.product.delete',$product->id)}}" class="btn btn-link btn-sm rounded-0 p-0" data-toggle="tooltip" data-placement="top" title="Delete Product"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                             @endforeach
@@ -121,7 +121,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Product Price</label>
-                            <input type="text" name="price" placeholder="0" class="form-control rounded-0">
+                            <input type="text" name="product_price" placeholder="0" class="form-control rounded-0">
                         </div>
                     </div>
                     <div class="col">
@@ -135,7 +135,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Thumbnail</label>
-                            <input type="file" name="image" required class="form-control form-control-file rounded-0">
+                            <input type="file" name="thumbnail" required class="form-control form-control-file rounded-0">
                         </div>
                     </div>
                     <div class="col">

@@ -24,11 +24,11 @@ class SliderController extends Controller
             $images = $request->file('image');
             foreach ($images as $image) {
                 $originalname = time() . '' . $image->getClientOriginalName();
-                $destination = 'public/images/' . $originalname;
+                $destination = 'images/' . $originalname;
                 Image::make($image)->resize(973,390)->save($destination);
                 $sliders = new Slider;
                 $sliders->image = $originalname;
-                $sliders->title = $request->title;
+                // $sliders->title = $request->title;
                 $sliders->save();
 
                 }
@@ -43,7 +43,7 @@ class SliderController extends Controller
     public function delete(Slider $slider)
     {
         if($slider->image != null){
-            unlink('public/images/'.$slider->image);
+            unlink('images/'.$slider->image);
         }
         $slider->delete();
 

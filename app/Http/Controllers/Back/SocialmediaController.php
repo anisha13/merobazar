@@ -24,7 +24,7 @@ class SocialmediaController extends Controller
 
             $image = $request->file('image');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(519, 324, function ($constraint) {
                 $constraint->aspectRatio();
@@ -47,7 +47,7 @@ class SocialmediaController extends Controller
     {
         if(!$socialmedia->image==null){
             $image = $socialmedia->image;
-            unlink('public/images/'.$image);
+            unlink('images/'.$image);
         }
         $socialmedia->delete();
         $notificaton=array('message'=>'Brand Deleted Successfully' ,'alert-type'=>'success');
@@ -72,7 +72,7 @@ class SocialmediaController extends Controller
 
             $image = $request->file('image');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(519, 324, function ($constraint) {
                 $constraint->aspectRatio();
@@ -80,7 +80,7 @@ class SocialmediaController extends Controller
             })->save($destinationpath);
             if ($oldimage != null)
             {
-                unlink('public/images/'.$oldimage);
+                unlink('images/'.$oldimage);
             }
 
             $socialmedia->image = $imagename;

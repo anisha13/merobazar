@@ -32,7 +32,7 @@ class UserpasswordController extends Controller
 
             $image = $request->file('image');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(519, 324, function ($constraint) {
                 $constraint->aspectRatio();
@@ -40,7 +40,7 @@ class UserpasswordController extends Controller
             })->save($destinationpath);
             if ($oldimage != null)
             {
-                unlink('public/images/'.$oldimage);
+                unlink('images/'.$oldimage);
             }
 
             $user->image = $imagename;
@@ -74,7 +74,7 @@ return back()->with($notification);
 return back()->with($notification);
     }
 
-    public function verifyUser($userid,$number)
+    public function verifyUser($userid)
     {
      
       $user = User::where('id',$userid)->first();

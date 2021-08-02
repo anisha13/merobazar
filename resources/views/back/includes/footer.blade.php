@@ -1,7 +1,7 @@
 </div>
 <footer>
     <div class="pull-right">
-        Designed & Developed by <a href="#" target="_blank">PaailaTechnologies</a>
+        Designed & Developed by <a href="#" target="_blank">Anisha Rauniyar</a>
     </div>
     <div class="clearfix"></div>
 </footer>

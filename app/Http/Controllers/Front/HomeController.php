@@ -89,7 +89,7 @@ class HomeController extends Controller
     {
         if(!$user->image==null){
             $image = $user->image;
-            unlink('public/images/'.$image);
+            unlink('images/'.$image);
         }
         $user->delete();
         $notificaton=array('message'=>'User Deleted Successfully' ,'alert-type'=>'success');

@@ -150,7 +150,7 @@ Route::post('BillingAddress','Front\CheckoutController@billing')->name('billing'
 Route::post('question/send', 'Front\HomeController@questionsend')->name('question.send');
 
 /*-------------------------------Email Verify---------------------------------*/
-Route::get('verify/{userid}/{number}', 'Front\UserpasswordController@verifyUser');
+Route::get('/verify/{userid}', 'Front\UserpasswordController@verifyUser');
 Route::get('/filter/brand', 'Front\FilterController@brand')->name('hello');
 Route::get('/filter/category/{category}', 'Front\FilterController@category');
 Route::get('/filter/price/{value}/{max}/{min}', 'Front\FilterController@price');

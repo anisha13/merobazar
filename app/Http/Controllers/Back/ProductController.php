@@ -93,7 +93,7 @@ class ProductController extends Controller
 
             $image = $request->file('thumbnail');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(400, 400, function ($constraint) {
                 $constraint->aspectRatio();
@@ -191,7 +191,7 @@ class ProductController extends Controller
     	$product->color =$request->color;
     	$product->slug =rand().$request->name;
     
-    	$product->price =$request->product_price;
+    	$product->price =  $request->product_price;
     	$product->discount =$request->discount;
     	
     	
@@ -207,7 +207,7 @@ class ProductController extends Controller
 
             $image = $request->file('thumbnail');
             $imagename = time() . $image->getClientOriginalName();
-            $destinationpath = 'public/images/'.$imagename;
+            $destinationpath = 'images/'.$imagename;
 
             Image::make($image)->resize(519, 324, function ($constraint) {
                 $constraint->aspectRatio();
@@ -215,7 +215,7 @@ class ProductController extends Controller
             })->save($destinationpath);
             if ($oldimage != null)
             {
-                unlink('public/images/'.$oldimage);
+                unlink('images/'.$oldimage);
             }
 
             $product->thumbnail = $imagename;
@@ -280,7 +280,7 @@ class ProductController extends Controller
             $images = $request->file('image');
             foreach ($images as $image) {
                 $originalname = time() . '' . $image->getClientOriginalName();
-                $destination = 'public/images/' . $originalname;
+                $destination = 'images/' . $originalname;
                 Image::make($image)->resize(300, 300)->save($destination);
                 $gallery = new Gallery;
                 $gallery->product_id = $request->product;
@@ -321,7 +321,7 @@ class ProductController extends Controller
     {
      if(!$gallery->image==null){
             $image = $gallery->image;
-            unlink('public/images/'.$image);
+            unlink('images/'.$image);
         }
         $gallery->delete();
         $notification =array('message'=>'Data Deleted successfully','alert-type'=>'success');
@@ -333,7 +333,7 @@ class ProductController extends Controller
          
      if(!$product->image==null){
             $image = $product->image;
-            unlink('public/images/'.$image);
+            unlink('images/'.$image);
         }
         $product->delete();
         $notification=array('message'=>'Product Removed From Database','alert-type'=>'success');
