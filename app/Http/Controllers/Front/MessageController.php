@@ -67,8 +67,14 @@ class MessageController extends Controller
         $messages =Message::where('vendor_id',auth()->user()->id)->get();
         return view('front.message.index',compact('messages'));
     }
-
     public function delete(Message $message)
+    {
+        $message->delete();
+        $notification =array('message'=>'Messsage deleted',
+                              'alert-type','success');
+        return back()->with($notification);
+    }
+    public function frontdelete(Message $message)
     {
         $message->delete();
         $notification =array('message'=>'Messsage deleted',

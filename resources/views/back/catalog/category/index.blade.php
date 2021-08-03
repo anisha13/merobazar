@@ -49,7 +49,7 @@
                                     <th>{{$category->parent_id}}</th>
                                     <th>{{$category->url}}</th>
 
-                                    <th><img src="{{asset('/images/'.$category->image)}}" height="30"></th>
+                                    <th><img src="{{asset('images/'.$category->image)}}" height="30"></th>
                                     <th>
                                         @if($category->status=="1")
                                         <a href="{{route('cat.status',[$category->id,'0'])}}" class="btn btn-link"><span class="badge badge-success">Active</span></a>
@@ -69,7 +69,7 @@
                                     <th>{{$category->parent_id}}</th>
                                     <th>{{$category->url}}</th>
 
-                                    <th><img src="{{asset('/images/'.$category->image)}}" height="30"></th>
+                                    <th><img src="{{asset('images/'.$category->image)}}" height="30"></th>
                                     <th>
                                         @if($category->status=="1")
                                         <a href="{{route('cat.status',[$category->id,'0'])}}" class="btn btn-link"><span class="badge badge-success">Active</span></a>
@@ -129,7 +129,7 @@
                                                                 </div>
 
                                                                 <div class="form-group col-md-6">
-                                                                    <img src="{{asset('/images/'.$category->image)}}" height="20">
+                                                                    <img src="{{asset('images/'.$category->image)}}" height="20">
                                                                     <input type="hidden" value="{{$category->image}}" name="oldfile">
                                                                     <label>Image</label>
                                                                     <input type="file" name="image" class="form-control">

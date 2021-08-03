@@ -43,7 +43,7 @@ class SocialmediaController extends Controller
             return redirect()->back()->with($notificaton);
 
     }
-    public function delete(Brand $socialmedia)
+    public function delete(Socialmedia $socialmedia)
     {
         if(!$socialmedia->image==null){
             $image = $socialmedia->image;

@@ -107,7 +107,7 @@ class CategoryController extends Controller
             {
                 unlink('images/'.$oldimage);
             }
-
+                    echo $imagename;
             $category->image = $imagename;
 
 
